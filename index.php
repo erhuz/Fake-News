@@ -8,7 +8,8 @@ require_once('functions.php');
 
 $title = 'News';
 
-$database = new ConnectToDatabase;
+$news = new NewsManager;
+$author = new AuthorManager;
 
 
 ?>
@@ -29,7 +30,28 @@ $database = new ConnectToDatabase;
                 </div>
             </div>
             <div class="row">
-                
+                <pre>
+                <?php 
+                    
+                    // TODO: Continue building Manager classes, fix news manager bugs.
+                    //! FIXME: Uncaught Error: Call to a member function setData() on string in /Users/erhuz/Sites/yrgo/php/Fake-News/functions.php:47 
+
+                    // $author->create('Benjamin Fransson', 'benjamin@cafcon.se', 'biudbgdoubgd');
+                    die(var_dump($news->create(
+                        'PlaceholderTitle', 
+                        'Lorem ipsum .',
+                        1)));
+                    
+
+                    // print_r($author->get());
+                    // print_r($news->get(1));
+                    
+                ?>
+
+
+</pre>
+
+
             </div>
         </div>
     </main>
