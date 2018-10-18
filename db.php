@@ -9,6 +9,7 @@ class ConnectToDatabase
     private $fileName = '';
     //PDO object
     private $pdo;
+    
     public function __construct()
     {
         $this->fileName = $_SERVER['DOCUMENT_ROOT'].'/fake-news.db';
