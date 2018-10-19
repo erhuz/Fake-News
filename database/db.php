@@ -12,7 +12,7 @@ class ConnectToDatabase
 
     public function __construct()
     {
-        $this->fileName = $_SERVER['DOCUMENT_ROOT'].'/fake-news.db';
+        $this->fileName = $_SERVER['DOCUMENT_ROOT'].'/database/fake-news.db';
         //Create PDO connection
         // Create (connect to) SQLite database in file
         $dsn = "sqlite:$this->fileName";
@@ -48,7 +48,7 @@ class ConnectToDatabase
      *
      * @return array
      */
-    public function getData(string $query, ?array $params = []): array
+    public function getData(string $query, ?array $params): array
     {
         $sth = $this->pdo->prepare($query);
         $sth->execute($params);
@@ -62,9 +62,9 @@ class ConnectToDatabase
      * @param string $query
      * @param array  $params (Optional)
      */
-    public function setData(string $query, ?array $params = [])
+    public function setData(string $query, ?array $params)
     {
         $sth = $this->pdo->prepare($query);
-        $sth->execute($params);
+        return $sth->execute($params);
     }
 }
