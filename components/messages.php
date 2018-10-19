@@ -8,7 +8,7 @@ if(isset($_SESSION['messages'])):
 <div class="container mt-4"> <!-- Messages container -->
     <?php foreach($messages as $mess): ?>  
         <div class="row"> <!-- Message row -->
-            <?php if($mess === 'secondary'): ?>
+            <?php if($mess['type'] === 'secondary'): ?>
             <div div class="col-12 alert alert-dismissible alert-secondary">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
                 <?php if(isset($mess['title'])): ?>
@@ -17,7 +17,7 @@ if(isset($_SESSION['messages'])):
                 <p><?= $mess['content']; ?></p>
             </div>
 
-            <?php elseif($mess === 'success'): ?>
+            <?php elseif($mess['type'] === 'success'): ?>
             <div class="col-12 alert alert-dismissible alert-success">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
                 <?php if(isset($mess['title'])): ?>
@@ -26,7 +26,7 @@ if(isset($_SESSION['messages'])):
                 <p><?= $mess['content']; ?></p>
             </div>
 
-            <?php elseif($mess === 'info'): ?>
+            <?php elseif($mess['type'] === 'info'): ?>
             <div class="col-12 alert alert-dismissible alert-info">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
                 <?php if(isset($mess['title'])): ?>
@@ -35,7 +35,7 @@ if(isset($_SESSION['messages'])):
                 <p><?= $mess['content']; ?></p>
             </div>
 
-            <?php elseif($mess === 'warning'): ?>
+            <?php elseif($mess['type'] === 'warning'): ?>
             <div class="col-12 alert alert-dismissible alert-warning">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
                 <?php if(isset($mess['title'])): ?>
@@ -44,7 +44,7 @@ if(isset($_SESSION['messages'])):
                 <p><?= $mess['content']; ?></p>
             </div>
 
-            <?php elseif($mess === 'dangar'): ?>
+            <?php elseif($mess['type'] === 'danger'): ?>
             <div class="col-12 alert alert-dismissible alert-danger">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
                 <?php if(isset($mess['title'])): ?>
