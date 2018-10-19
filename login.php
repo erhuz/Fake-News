@@ -7,12 +7,15 @@ require_once('classes/db.php');
 
 $title = 'Login / Register';
 
-?>
 
-<?php require_once('components/head.php'); ?>
+// Require HTML
 
-<?php require_once('components/nav.php'); ?>
+require_once 'components/head.php';
 
-<?php require_once('content/authForm.php'); ?>
+require_once 'components/nav.php';
 
-<?php require_once('components/footer.php'); ?>
+require_once 'components/messages.php';
+
+require_once 'content/authForm.php'; // Content
+
+require_once 'components/footer.php';

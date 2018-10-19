@@ -7,12 +7,15 @@ require_once('classes/db.php');
 
 $title = 'News';
 
-?>
 
-<?php require_once('components/head.php'); ?>
+// Require HTML
 
-<?php require_once('components/nav.php'); ?>
+require_once 'components/head.php';
 
-<?php require_once('content/index.php'); ?>
+require_once 'components/nav.php';
 
-<?php require_once('components/footer.php'); ?>
+require_once 'components/messages.php';
+
+require_once 'content/index.php'; // Content
+
+require_once 'components/footer.php';
