@@ -10,7 +10,7 @@
                 <div class="card border-primary mb-3">
                     <div class="card-header">Login</div>
                     <div class="card-body">
-                        <form action="processing/accounts.php" method="post">
+                        <form action="processing/login.php" method="post">
                             <label for="email">Email</label><br>
                             <input type="email" name="email" id="email"><br>
                             <label for="pwd">Password</label><br>
@@ -25,7 +25,7 @@
                 <div class="card border-primary mb-3">
                     <div class="card-header">Register</div>
                     <div class="card-body">
-                        <form action="processing/accounts.php" method="post">
+                        <form action="processing/register.php" method="post">
                             <label for="name">Name</label><br>
                             <input type="text" name="name" id="name"><br>
                             <label for="email">Email</label><br>
