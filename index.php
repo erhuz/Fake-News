@@ -9,7 +9,7 @@ require_once('functions.php');
 $title = 'News';
 
 $news = new NewsManager;
-$author = new AuthorManager;
+// $author = new AuthorManager;
 
 
 ?>
