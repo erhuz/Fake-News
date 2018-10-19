@@ -7,44 +7,12 @@ require_once('classes/db.php');
 
 $title = 'News';
 
-
-
-
 ?>
-<!DOCTYPE html>
-<html lang="en">
 
 <?php require_once('components/head.php'); ?>
 
-<body>
-    <?php require_once('components/nav.php'); ?>
+<?php require_once('components/nav.php'); ?>
 
-    <!-- CONTENT BEGIN -->
-    <main>
-        <div class="container mt-4">
-            <div class="row">
-                <div class="col">
-                    <h1><?=$title?></h1>
-                </div>
-            </div>
-            <div class="row">
-                <pre>
-                <?php 
-                    
-                    //echo $manager->create('authors', ['name','email','password'], ['Benjamin Fransson', 'Benjamin@gmail.se', 'sduihgdiugb']);
+<?php require_once('content/index.php'); ?>
 
-
-                    
-                ?>
-                </pre>
-
-
-            </div>
-        </div>
-    </main>
-    <!-- CONTENT END -->
-
-    <?php require_once('components/footer.php'); ?>
-</body>
-
-</html>
+<?php require_once('components/footer.php'); ?>
