@@ -6,17 +6,18 @@ declare (strict_types = 1);
 
 // Page setup
 session_start();
-require_once 'classes/db.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/database/db.php';
 $title = 'Login / Register';
+
 
 /* REQUIRE HTML */
 
-require_once 'components/head.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/components/head.php';
 
-require_once 'components/nav.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/components/nav.php';
 
-require_once 'components/messages.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/components/messages.php';
 
-require_once 'content/authForm.php'; // Content
+require_once $_SERVER['DOCUMENT_ROOT'].'/content/authForm.php'; // Content
 
-require_once 'components/footer.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/components/footer.php';
