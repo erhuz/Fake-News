@@ -2,6 +2,9 @@
     session_start();
     require_once $_SERVER['DOCUMENT_ROOT'].'/database/db.php';
 
+    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    // TODO: Sanisize user input
+
     if(!isset($_POST['name']) || !isset($_POST['email']) || !isset($_POST['pwd']) || !isset($_POST['pwd2'])){
 
         // Prepare message

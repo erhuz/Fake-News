@@ -1,9 +1,10 @@
 <?php
     session_start();
-
     require_once $_SERVER['DOCUMENT_ROOT'].'/database/db.php';
 
-    // IF
+    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    // TODO: Sanisize user input
+
     if(!isset($_POST['email']) || !isset($_POST['pwd'])){
 
         // Prepare message
@@ -12,11 +13,15 @@
 
         // Set message
         $_SESSION['messages'][] = $tmp_msg;
+
+        // Redirect back to login/register
         header('location: /');
+        exit;
     }
 
     $db = new ConnectToDatabase;
 
+    
     $query = "SELECT * FROM authors WHERE email=:email;";
     $params = [':email' => $_POST['email']];
     
