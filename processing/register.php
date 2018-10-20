@@ -1,7 +1,8 @@
 <?php
     session_start();
     require_once $_SERVER['DOCUMENT_ROOT'].'/database/db.php';
-
+    $db = new ConnectToDatabase;
+    
     //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     // TODO: Sanisize user input
 
@@ -19,13 +20,7 @@
         exit;
     }
 
-    $db = new ConnectToDatabase;
-
-
-    // Set select query & parameters
-    $query = "SELECT * FROM authors WHERE email=:email;";
-    $params = [':email' => $_POST['email']];
-
+    // Password confirmation check
     if($_POST['pwd'] !== $_POST['pwd2']){
 
         // Prepare message
@@ -40,6 +35,11 @@
         header('location: /login.php');
         exit;
     }
+
+
+    // Set select query & parameters
+    $query = "SELECT * FROM authors WHERE email=:email;";
+    $params = [':email' => $_POST['email']];
 
     if($db->getData($query, $params)){
 
