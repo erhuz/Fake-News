@@ -62,7 +62,7 @@ class ConnectToDatabase
      * @param string $query
      * @param array  $params (Optional)
      */
-    public function setData(string $query, ?array $params = [])
+    public function setData(string $query, ?array $params = []): array
     {
         $sth = $this->pdo->prepare($query);
         return $sth->execute($params);
