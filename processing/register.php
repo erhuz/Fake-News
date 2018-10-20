@@ -20,12 +20,16 @@
         exit;
     }
 
+    foreach($_POST as $key => $value){
+        $_POST[$key] = strip_tags(htmlentities($value));
+    }
+
     // Password confirmation check
     if($_POST['pwd'] !== $_POST['pwd2']){
 
         // Prepare message
         $tmp_msg['title'] = 'Registration failed.';
-        $tmp_msg['content'] = 'Passwords didn\'t match, try again';
+        $tmp_msg['content'] = 'Passwords didn\'t match, try again.';
         $tmp_msg['type'] = 'warning';
 
         // Set message
@@ -41,6 +45,7 @@
     $query = "SELECT * FROM authors WHERE email=:email;";
     $params = [':email' => $_POST['email']];
 
+    // If email already registered
     if($db->getData($query, $params)){
 
         // Prepare message
@@ -64,6 +69,7 @@
         ':password' => hash('sha256', $_POST['pwd'])
     ];
     
+    // If data successfully inserted
     if($db->setData($query, $params)){
 
         // Prepare message
@@ -81,7 +87,7 @@
 
         // Prepare message
         $tmp_msg['title'] = 'Registration Failed';
-        $tmp_msg['content'] = 'Failed to store provided information';
+        $tmp_msg['content'] = 'Failed to store provided information.';
         $tmp_msg['type'] = 'danger';
 
         // Set message
