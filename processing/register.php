@@ -24,6 +24,22 @@
 
     $query = "SELECT * FROM authors WHERE email=:email;";
     $params = [':email' => $_POST['email']];
+
+    if($_POST['pwd'] !== $_POST['pwd2']){
+
+        // Prepare message
+        $tmp_msg['title'] = 'Registration failed.';
+        $tmp_msg['content'] = 'Passwords didn\'t match, try again';
+        $tmp_msg['type'] = 'warning';
+
+        // Set message
+        $_SESSION['messages'][] = $tmp_msg;
+
+        // Redirect back to login/register
+        header('location: /login.php');
+        exit;
+
+    }
     
     if($db->getData($query, $params)){
 
