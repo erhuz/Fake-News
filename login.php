@@ -18,6 +18,6 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/components/nav.php';
 
 require_once $_SERVER['DOCUMENT_ROOT'].'/components/messages.php';
 
-require_once $_SERVER['DOCUMENT_ROOT'].'/content/authForm.php'; // Content
+require_once $_SERVER['DOCUMENT_ROOT'].'/content/auth_form.php'; // Content
 
 require_once $_SERVER['DOCUMENT_ROOT'].'/components/footer.php';

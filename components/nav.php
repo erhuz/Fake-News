@@ -16,7 +16,7 @@
                 <a class="nav-link" href="/authors.php">Authors</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/login.php">Create an article</a>
+                <a class="nav-link" href="/create_news.php">My News</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/processing/logout.php">Logout</a>
