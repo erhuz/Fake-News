@@ -22,6 +22,7 @@
     $db = new ConnectToDatabase;
 
 
+    // Set select query & parameters
     $query = "SELECT * FROM authors WHERE email=:email;";
     $params = [':email' => $_POST['email']];
 
@@ -38,9 +39,8 @@
         // Redirect back to login/register
         header('location: /login.php');
         exit;
-
     }
-    
+
     if($db->getData($query, $params)){
 
         // Prepare message
@@ -55,7 +55,8 @@
         header('location: /login.php');
         exit;
     }
-    
+
+    // Set insert query & parameters
     $query = 'INSERT INTO authors(name, email, password) VALUES(:name, :email, :password);';
     $params = [
         ':name' => $_POST['name'],
