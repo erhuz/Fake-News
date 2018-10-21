@@ -1,4 +1,7 @@
 <?php 
+session_start();
+require_once $_SERVER['DOCUMENT_ROOT'].'/database/db.php';
+$db = new ConnectToDatabase;
 
 if(!isset($_POST['title']) || !isset($_POST['content'])){
     // Prepare message
@@ -13,4 +16,7 @@ if(!isset($_POST['title']) || !isset($_POST['content'])){
     exit;
 }
 
-// TODO: Implement logic to insert news/articles
+// Sanitize user input
+foreach($_POST as $key => $value){
+    $_POST[$key] = strip_tags(htmlentities($value));
+}

@@ -1,6 +1,7 @@
 <?php
     session_start();
     require_once $_SERVER['DOCUMENT_ROOT'].'/database/db.php';
+    $db = new ConnectToDatabase;
 
     //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     // TODO: Sanisize user input
@@ -19,7 +20,10 @@
         exit;
     }
 
-    $db = new ConnectToDatabase;
+    // Sanitize user input
+    foreach($_POST as $key => $value){
+        $_POST[$key] = strip_tags(htmlentities($value));
+    }
 
     
     $query = "SELECT * FROM authors WHERE email=:email;";
