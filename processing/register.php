@@ -20,6 +20,7 @@
         exit;
     }
 
+    // Sanitize user input
     foreach($_POST as $key => $value){
         $_POST[$key] = strip_tags(htmlentities($value));
     }
