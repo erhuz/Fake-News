@@ -1,10 +1,5 @@
 <?php
 declare (strict_types = 1);
-
-$db = new connectToDatabase;
-
-$query = 'SELECT * FROM news;';
-$articles = $db->getData($query);
 ?>
 <main>
     <div class="container mt-4">
@@ -51,20 +46,20 @@ $articles = $db->getData($query);
                     <div class="card border-primary mb-3">
                         <div class="card-header">
                             <div class="row">
-                                <div class="col"><h4><?php echo $_SESSION['user']['name']; ?></h4></div>
-                                <div class="col d-flex justify-content-end"><a class="btn btn-warning " href="">Edit article</a></div>
+                                <div class="col"><h4><?= $_SESSION['user']['name']; ?></h4></div>
+                                <div class="col d-flex justify-content-end"><a class="btn btn-warning " href="/processing/news/edit.php?id=<?= $article['id']; ?>">Edit article</a></div>
                             </div>
                             <div class="row mt-2">
-                                <div class="col"><?php echo $article['date']; ?></div>
-                                <div class="col d-flex justify-content-end"><a class="btn btn-danger " href="">Delete article</a></div>
+                                <div class="col"><?= $article['date']; ?></div>
+                                <div class="col d-flex justify-content-end"><a class="btn btn-danger" href="/processing/news/delete.php?id=<?= $article['id']; ?>">Delete article</a></div>
                             </div>
                         </div>
                         <div class="card-body">
                             <h4 class="card-title">
-                                <?php echo $article['title']; ?>
+                                <?= $article['title']; ?>
                             </h4>
                             <p class="card-text">
-                                <?php echo $article['content']; ?>
+                                <?= $article['content']; ?>
                             </p>
                         </div>
                     </div>
