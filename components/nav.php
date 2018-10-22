@@ -19,7 +19,7 @@
                 <a class="nav-link" href="/my_news.php">My News</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/processing/logout.php">Logout</a>
+                <a class="nav-link" href="/processing/author/logout.php">Logout</a>
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">

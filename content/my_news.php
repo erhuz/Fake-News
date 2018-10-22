@@ -17,7 +17,7 @@ $articles = $db->getData($query);
         </div>
         <div class="row">
             <div class="col">
-                <form action="/processing/create_news.php" method="post">
+                <form action="/processing/news/create.php" method="post">
                     <fieldset>
                         <div class="form-group">
                             <label for="title">News Title</label>
@@ -45,27 +45,31 @@ $articles = $db->getData($query);
             </div>
         </div>
         <?php endif;?>
-        <?php foreach ($articles as $article): ?>
         <div class="row">
-            <div class="col">
-                <div class="card border-primary mb-3">
-                    <div class="card-header">
-                        <div class="row">
-                            <div class="col"><?php echo $_SESSION['']; ?></div>
-                            <div class="col"><?php echo $article['date']; ?></div>
+            <?php foreach ($articles as $article): ?>
+                <div class="col-12 col-md-6">
+                    <div class="card border-primary mb-3">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col"><h4><?php echo $_SESSION['user']['name']; ?></h4></div>
+                                <div class="col d-flex justify-content-end"><a class="btn btn-warning " href="">Edit article</a></div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col"><?php echo $article['date']; ?></div>
+                                <div class="col d-flex justify-content-end"><a class="btn btn-danger " href="">Delete article</a></div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                <?php echo $article['title']; ?>
+                            </h4>
+                            <p class="card-text">
+                                <?php echo $article['content']; ?>
+                            </p>
                         </div>
                     </div>
-                    <div class="card-body">
-                        <h4 class="card-title">
-                            <?php echo $article['title']; ?>
-                        </h4>
-                        <p class="card-text">
-                            <?php echo $article['content']; ?>
-                        </p>
-                    </div>
                 </div>
-            </div>
+            <?php endforeach;?>
         </div>
-        <?php endforeach;?>
     </div>
 </main>
