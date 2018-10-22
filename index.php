@@ -9,10 +9,11 @@ $title = 'News';
 
 $db = new connectToDatabase;
 
-$query = 'SELECT * FROM news;';
+$query = 'SELECT * FROM news JOIN authors ON news.author = authors.id ORDER BY date;';
 
 // This data goes into index.php
-$articles = $db->getData($query);
+$results = $db->getData($query);
+
 
 /* REQUIRE HTML */
 
