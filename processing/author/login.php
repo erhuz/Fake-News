@@ -30,7 +30,7 @@
         if($result[0]['password'] !== hash('sha256', $_POST['pwd'])){
 
             // Set message
-            setMessage('Email or Password is invalid.', 'Login Failed', 'danger');
+            setMessage('Email or Password is incorrect.', 'Login Failed', 'danger');
 
             // Redirect back to login/register
             header('location: /login.php');
@@ -46,7 +46,14 @@
         $_SESSION['user']['email'] = $result[0]['email'];
         $_SESSION['user']['date'] = $result[0]['date'];
 
-        // Redirect back to login/register
-        header('location: /login.php');
+        // Redirect to to my news
+        header('location: /my_news.php');
         exit;
     }
+
+// Set message
+setMessage('Email or Password is incorrect.', 'Login Failed', 'danger');
+
+// Redirect back to login/register
+header('location: /login.php');
+exit;
