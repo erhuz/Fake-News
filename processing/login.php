@@ -3,9 +3,6 @@
     require_once $_SERVER['DOCUMENT_ROOT'].'/database/db.php';
     $db = new ConnectToDatabase;
 
-    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    // TODO: Sanisize user input
-
     if(!isset($_POST['email']) || !isset($_POST['pwd'])){
 
         // Prepare message
