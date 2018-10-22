@@ -7,13 +7,22 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/database/db.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/functions.php';
 $title = 'My News';
 
+if(!isset($_SESSION['user'])){
+    setMessage('You\'re not logged in.', 'Access denied.', 'warning');
+    header('location: /login.php');
+    exit;
+}
+
 
 $db = new connectToDatabase;
-$query = 'SELECT * FROM news;';
+
+$query = 'SELECT * FROM news WHERE author=:id;';
+$params = [
+    ':id' => $_SESSION['user']['id']
+];
 
 // This data goes into my_news.php
-$articles = $db->getData($query);
-
+$articles = $db->getData($query, $params);
 
 /* REQUIRE HTML */
 
