@@ -22,6 +22,9 @@ foreach($_POST as $key => $value){
     $_POST[$key] = strip_tags(htmlentities($value));
 }
 
+// Replace 'New Lines' with a <br> tag
+$_POST['content'] = str_replace(PHP_EOL, '<br>', $_POST['content']);
+
 // Set insert query & parameters
 $query = 'INSERT INTO news(title, content, likes) VALUES(:title, :content, :likes);';
 $params = [
