@@ -8,6 +8,11 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/functions.php';
 $title = 'Authors';
 
 
+$db = new ConnectToDatabase;
+
+$query = 'SELECT * FROM authors;';
+$authors = $db->getData($query);
+
 /* REQUIRE HTML */
 
 require_once $_SERVER['DOCUMENT_ROOT'].'/components/head.php';
