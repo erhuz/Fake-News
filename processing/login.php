@@ -1,21 +1,19 @@
 <?php
     session_start();
     require_once $_SERVER['DOCUMENT_ROOT'].'/database/db.php';
+    require_once $_SERVER['DOCUMENT_ROOT'].'/functions.php';
     $db = new ConnectToDatabase;
 
     if(!isset($_POST['email']) || !isset($_POST['pwd'])){
 
-        // Prepare message
-        $tmp_msg['content'] = 'Something went wrong! Please try again.';
-        $tmp_msg['type'] = 'danger';
-
         // Set message
-        $_SESSION['messages'][] = $tmp_msg;
+        setMessage('Something went wrong! Please try again.', 'Woops!', 'danger');
 
         // Redirect back to login/register
         header('location: /');
         exit;
     }
+
 
     // Sanitize user input
     foreach($_POST as $key => $value){
@@ -26,30 +24,21 @@
     $query = "SELECT * FROM authors WHERE email=:email;";
     $params = [':email' => $_POST['email']];
     
+    // If author found in database
     if($result = $db->getData($query, $params)){
         // If passwords doesn't match
         if($result[0]['password'] !== hash('sha256', $_POST['pwd'])){
 
-            // Prepare message
-            $tmp_msg['title'] = 'Login Failed';
-            $tmp_msg['content'] = 'Email or Password is invalid';
-            $tmp_msg['type'] = 'danger';
-    
             // Set message
-            $_SESSION['messages'][] = $tmp_msg;
+            setMessage('Email or Password is invalid.', 'Login Failed', 'danger');
 
             // Redirect back to login/register
             header('location: /login.php');
             exit;
         }
 
-        // Prepare message
-        $tmp_msg['title'] = 'Login Successful';
-        $tmp_msg['content'] = 'You\'re now logged in! Enjoy!';
-        $tmp_msg['type'] = 'success';
-
         // Set message
-        $_SESSION['messages'][] = $tmp_msg;
+        setMessage('You\'re now logged in! Enjoy!', 'Login Successful', 'success');
 
         // Set login session variables
         $_SESSION['user']['id'] = $result[0]['id'];

@@ -1,15 +1,13 @@
 <?php 
 session_start();
 require_once $_SERVER['DOCUMENT_ROOT'].'/database/db.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/functions.php';
 $db = new ConnectToDatabase;
 
 if(!isset($_POST['title']) || !isset($_POST['content'])){
-    // Prepare message
-    $tmp_msg['content'] = 'Input went missing! Please try again.';
-    $tmp_msg['type'] = 'danger';
 
     // Set message
-    $_SESSION['messages'][] = $tmp_msg;
+    setMessage('Input went missing! Please try again.', 'Woops!', 'danger');
 
     // Redirect back to my_news
     header('/my_news.php');

@@ -1,17 +1,14 @@
 <?php
     session_start();
     require_once $_SERVER['DOCUMENT_ROOT'].'/database/db.php';
+    require_once $_SERVER['DOCUMENT_ROOT'].'/functions.php';
     $db = new ConnectToDatabase;
 
     // If any input is missing
     if(!isset($_POST['name']) || !isset($_POST['email']) || !isset($_POST['pwd']) || !isset($_POST['pwd2'])){
 
-        // Prepare message
-        $tmp_msg['content'] = 'Something went wrong! Please try again.';
-        $tmp_msg['type'] = 'danger';
-
         // Set message
-        $_SESSION['messages'][] = $tmp_msg;
+        setMessage('Something went wrong! Please try again.', 'Woops!', 'danger');
 
         // Redirect back to login/register
         header('location: /');
@@ -26,13 +23,8 @@
     // Password confirmation check
     if($_POST['pwd'] !== $_POST['pwd2']){
 
-        // Prepare message
-        $tmp_msg['title'] = 'Registration failed.';
-        $tmp_msg['content'] = 'Passwords didn\'t match, try again.';
-        $tmp_msg['type'] = 'warning';
-
         // Set message
-        $_SESSION['messages'][] = $tmp_msg;
+        setMessage('Passwords didn\'t match, try again.', 'Registration failed.', 'warning');
 
         // Redirect back to login/register
         header('location: /login.php');
@@ -47,13 +39,8 @@
     // If email already registered
     if($db->getData($query, $params)){
 
-        // Prepare message
-        $tmp_msg['title'] = 'Registration Failed';
-        $tmp_msg['content'] = 'An account is already associated with that email, try another one.';
-        $tmp_msg['type'] = 'danger';
-
         // Set message
-        $_SESSION['messages'][] = $tmp_msg;
+        setMessage('An account is already associated with that email, try another one.', 'Registration Failed', 'danger');
 
         // Redirect back to login/register
         header('location: /login.php');
@@ -71,26 +58,16 @@
     // If data successfully inserted
     if($db->setData($query, $params)){
 
-        // Prepare message
-        $tmp_msg['title'] = 'Registration Complete!';
-        $tmp_msg['content'] = 'Registration successful, you can now log in!';
-        $tmp_msg['type'] = 'success';
-
         // Set message
-        $_SESSION['messages'][] = $tmp_msg;
+        setMessage('Registration successful, you can now log in!', 'Registration Complete!', 'success');
 
         // Redirect back to login/register
         header('location: /login.php');
         exit;
     }else{
-
-        // Prepare message
-        $tmp_msg['title'] = 'Registration Failed';
-        $tmp_msg['content'] = 'Failed to store provided information.';
-        $tmp_msg['type'] = 'danger';
-
+        
         // Set message
-        $_SESSION['messages'][] = $tmp_msg;
+        setMessage('Failed to store provided information.', 'Registration Failed', 'danger');
 
         // Redirect back to login/register
         header('location: /login.php');
