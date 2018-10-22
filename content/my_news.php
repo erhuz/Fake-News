@@ -1,4 +1,6 @@
 <?php
+declare (strict_types = 1);
+
 $db = new connectToDatabase;
 
 $query = 'SELECT * FROM news;';
@@ -48,7 +50,10 @@ $articles = $db->getData($query);
             <div class="col">
                 <div class="card border-primary mb-3">
                     <div class="card-header">
-                        <?php echo $article['date']; ?>
+                        <div class="row">
+                            <div class="col"><?php echo $_SESSION['']; ?></div>
+                            <div class="col"><?php echo $article['date']; ?></div>
+                        </div>
                     </div>
                     <div class="card-body">
                         <h4 class="card-title">

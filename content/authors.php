@@ -1,4 +1,6 @@
 <?php
+declare (strict_types = 1);
+
 $db = new ConnectToDatabase;
 
 $query = 'SELECT * FROM authors;';
