@@ -1,7 +1,7 @@
 <?php
 declare (strict_types = 1);
 
-function setMessage(string $message, ?string $title, ?string $type)
+function setMessage(string $message, ?string $title, ?string $type) : void
 {
     // Prepare message
     $tmp_msg['content'] = $message;
