@@ -1,17 +1,16 @@
 <?php
 declare (strict_types = 1);
 
-function setMessage(string $message, ?string $title, ?string $type) : void
+function setMessage(string $message, ?string $title = null, ?string $type = null) : void
 {
     // Prepare message
     $tmp_msg['content'] = $message;
 
-    if(isset($title)){
+    if($title !== null){
         $tmp_msg['title'] = $title;
     }
-    if(isset($type)){
-        $tmp_msg['type'] = $type;
-    }
+
+    $tmp_msg['type'] = $type;
 
     // Set message
     global $_SESSION;
