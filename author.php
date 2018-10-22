@@ -17,8 +17,22 @@ if(!isset($_GET['id'])){
     exit;
 }
 
+$db = new ConnectToDatabase;
 
-// TODO: Get given authors info & posted news articles.
+// Get given author w/ his/hers articles
+$query = 'SELECT * FROM authors JOIN news ON authors.id = news.author WHERE authors.id=:id ORDER BY date';
+$params = [
+    ':id' => $_GET['id']
+];
+
+$results = $db->getData($query, $params);
+$result_count = count($results);
+
+if($results){
+    $title = $results[0]['name'];
+}else{
+    $title = 'No posts from this user.';
+}
 
 /* REQUIRE HTML */
 
