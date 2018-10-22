@@ -7,6 +7,12 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/database/db.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/functions.php';
 $title = 'News';
 
+$db = new connectToDatabase;
+
+$query = 'SELECT * FROM news;';
+
+// This data goes into index.php
+$articles = $db->getData($query);
 
 /* REQUIRE HTML */
 
