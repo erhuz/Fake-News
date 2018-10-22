@@ -11,7 +11,7 @@ $db = new ConnectToDatabase;
 if(!isset($_POST['name']) || !isset($_POST['email']) || !isset($_POST['pwd']) || !isset($_POST['pwd2'])){
 
     // Set message
-    setMessage('Something went wrong! Please try again.', 'Woops!', 'danger');
+    setMessage('Input went missing! Please try again.', 'Woops!', 'danger');
 
     // Redirect back to login/register
     header('location: /');
