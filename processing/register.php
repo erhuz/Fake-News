@@ -3,6 +3,7 @@
     require_once $_SERVER['DOCUMENT_ROOT'].'/database/db.php';
     $db = new ConnectToDatabase;
 
+    // If any input is missing
     if(!isset($_POST['name']) || !isset($_POST['email']) || !isset($_POST['pwd']) || !isset($_POST['pwd2'])){
 
         // Prepare message
