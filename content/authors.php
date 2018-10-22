@@ -24,11 +24,17 @@ $query = 'SELECT title FROM news WHERE id=:id;';
         <div class="row">
             <div class="col-sm-12 col-md-6 offset-md-3">
                 <div class="card border-primary mb-3">
-                    <div class="card-header"><h4><?php echo ucfirst($author['name']); ?></h4></div>
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col"><h4><?= ucfirst($author['name']); ?></h4></div>
+                            <div class="col d-flex justify-content-end"><a class="card-link btn btn-primary" href="/author.php?id=<?= $author['id']; ?>">View profile.</a></div>
+                        
+                        </div>
+                    </div>
+
                     <div class="card-body">
-                        <p class="card-text"><?php echo ucfirst($author['name']); ?> has created <?php echo $news_amount; ?> news articles.<br>
-                        Author registered on <?php echo $author['date']; ?>.</p>
-                        <a class="card-link" href="/author.php?id=<?php echo $author['id']; ?>">View <?php echo ucfirst($author['name']); ?>'s profile.</a>
+                        <p class="card-text"><?= ucfirst($author['name']); ?> has created <?= $news_amount; ?> news articles.<br>
+                        Author registered on <?= $author['date']; ?>.</p>
                     </div>
                 </div>
             </div>
