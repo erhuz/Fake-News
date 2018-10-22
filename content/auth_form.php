@@ -12,9 +12,9 @@
                     <div class="card-body">
                         <form action="processing/author/login.php" method="post">
                             <label for="email">Email</label><br>
-                            <input type="email" name="email" id="email"><br>
+                            <input type="email" name="email" id="email" required><br>
                             <label for="pwd">Password</label><br>
-                            <input type="password" name="pwd" id="pwd"><br>
+                            <input type="password" name="pwd" id="pwd" required><br>
                             <input type="hidden" name="action" value="login">
                             <input class="mt-3 btn btn-primary" type="submit" value="Login">
                         </form>
@@ -27,13 +27,13 @@
                     <div class="card-body">
                         <form action="processing/author/register.php" method="post">
                             <label for="name">Name</label><br>
-                            <input type="text" name="name" id="name"><br>
+                            <input type="text" name="name" id="name" required><br>
                             <label for="email">Email</label><br>
-                            <input type="email" name="email" id="email"><br>
+                            <input type="email" name="email" id="email" required><br>
                             <label for="pwd">Password</label><br>
-                            <input type="password" name="pwd" id="pwd"><br>
+                            <input type="password" name="pwd" id="pwd" required><br>
                             <label for="pwd">Confirm Password</label><br>
-                            <input type="password" name="pwd2" id="pwd2"><br>
+                            <input type="password" name="pwd2" id="pwd2" required><br>
                             <input type="hidden" name="action" value="register">
                             <input class="mt-3 btn btn-primary" type="submit" value="Register">
                         </form>
