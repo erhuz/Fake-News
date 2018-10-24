@@ -18,17 +18,15 @@ if(!isset($_GET['id'])){
 }
 
 // Sanitize user input
-foreach($_POST as $key => $value){
-    $_POST[$key] = strip_tags(htmlentities($value));
+foreach($_GET as $key => $value){
+    $_GET[$key] = strip_tags(htmlentities($value));
 }
 
-// Replace 'New Lines' with a <br> tag
-$_POST['content'] = str_replace(PHP_EOL, '<br>', $_POST['content']);
-
 // Set insert query & parameters
-$query = 'DELETE FROM news WHERE id=:id;';
+$query = 'DELETE FROM news WHERE id=:id AND author=:author;';
 $params = [
-    'id' => $_GET['id']
+    ':id' => $_GET['id'],
+    ':author' => $_SESSION['user']['id']
 ];
 
 // If data successfully removed
