@@ -7,9 +7,19 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/database/db.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/functions.php';
 $title = 'News';
 
+// Create new ConntectToDatabase object
 $db = new connectToDatabase;
 
-$query = 'SELECT * FROM news JOIN authors ON news.author = authors.id ORDER BY date;';
+// Set query to retrieve relevant information
+$query = 'SELECT news.id,
+                news.title,
+                news.content,
+                news.author,
+                news.likes,
+                news.date,
+                authors.name,
+                authors.email 
+    FROM news JOIN authors ON news.author = authors.id ORDER BY news.date DESC;';
 
 // This data goes into index.php
 $results = $db->getData($query);

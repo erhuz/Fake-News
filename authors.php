@@ -7,10 +7,13 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/database/db.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/functions.php';
 $title = 'Authors';
 
-
+// Create new ConntectToDatabase object
 $db = new ConnectToDatabase;
 
-$query = 'SELECT * FROM authors;';
+// Set the pre-defined query
+$query = 'SELECT * FROM authors ORDER BY date ASC;';
+
+// Get data from DB, it is required by authors.php
 $authors = $db->getData($query);
 
 /* REQUIRE HTML */
