@@ -17,6 +17,7 @@ if(!isset($_GET['id'])){
     exit;
 }
 
+// Create new ConntectToDatabase object
 $db = new ConnectToDatabase;
 
 // Get given author w/ his/hers articles
@@ -25,8 +26,8 @@ $params = [
     ':id' => $_GET['id']
 ];
 
+// Get results from DB
 $results = $db->getData($query, $params);
-$result_count = count($results);
 
 if($results){
     $title = $results[0]['name'];
