@@ -1,5 +1,10 @@
 <?php
 declare (strict_types = 1);
+/**
+ * This is the landing page, the first page the
+ * visitors will see.
+ * 
+ */
 
 // Page setup
 session_start();

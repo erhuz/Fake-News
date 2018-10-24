@@ -1,5 +1,10 @@
 <?php
 declare (strict_types = 1);
+/**
+ * This is the page that users visit to
+ * display articles created by specific
+ * authors. So only one author at a time.
+ */
 
 // Page setup
 session_start();

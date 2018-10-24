@@ -1,5 +1,11 @@
 <?php
 declare (strict_types = 1);
+/**
+ * This is the page that the users visit to
+ * display all the authors, so that they
+ * then can go and view articles published
+ * by an author of their choosing.
+ */
 
 // Page setup
 session_start();

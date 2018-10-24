@@ -1,5 +1,13 @@
 <?php
 declare (strict_types = 1);
+/**
+ * This is the file where functions
+ * will be kept. 
+ * 
+ * All functions should be in this file,
+ * except for the ConnectToDatabase Class.
+ */
+
 
 function setMessage(string $message, ?string $title = null, ?string $type = null) : void
 {
