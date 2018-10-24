@@ -26,10 +26,11 @@ foreach($_POST as $key => $value){
 $_POST['content'] = str_replace(PHP_EOL, '<br>', $_POST['content']);
 
 // Set insert query & parameters
-$query = 'INSERT INTO news(title, content, likes) VALUES(:title, :content, :likes);';
+$query = 'INSERT INTO news(title, content, author, likes) VALUES(:title, :content, :author, :likes);';
 $params = [
     ':title' => $_POST['title'],
     ':content' => $_POST['content'],
+    ':author' => $_SESSION['user']['id'],
     ':likes' => rand(0, 40)
 ];
 
