@@ -4,6 +4,8 @@ declare (strict_types = 1);
  * This is the landing page, the first page the
  * visitors will see.
  * 
+ * It will display the news in the DB, sorted
+ * by creation date; descending.
  */
 
 // Page setup
