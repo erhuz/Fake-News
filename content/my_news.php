@@ -16,11 +16,11 @@ declare (strict_types = 1);
                     <fieldset>
                         <div class="form-group">
                             <label for="title">News Title</label>
-                            <input type="text" class="form-control" name="title" id="title" placeholder="Enter title...">
+                            <input type="text" class="form-control" name="title" id="title" placeholder="Enter title..." required>
                         </div>
                         <div class="form-group">
                             <label for="content">News Content</label>
-                            <textarea class="form-control" name="content" id="content" rows="3"></textarea>
+                            <textarea class="form-control" name="content" id="content" rows="3" required></textarea>
                         </div>
                         <button type="submit" class="btn btn-lg btn-primary btn-block">Submit</button>
                     </fieldset>
@@ -42,7 +42,7 @@ declare (strict_types = 1);
         <?php endif;?>
         <div class="row">
             <?php foreach ($articles as $article): ?>
-                <div class="col-12 col-md-6">
+                <div class="col-12 col-lg-6">
                     <div class="card border-primary mb-3">
                         <div class="card-header">
                             <div class="row">
