@@ -7,24 +7,26 @@
         </div>
         <div class="row">
 
-        <!-- put news here -->
-            <?php foreach ($articles as $article): ?>
-                <div class="col-md-12 col-lg-6">
+        <!-- News -->
+            <?php foreach ($results as $result): ?>
+                <div class="col-md-12 col-lg-10 offset-lg-1">
                     <div class="card border-primary mb-3">
 
+                        <!-- News header -->
                         <div class="card-header">
                             <div class="row">
-                                <div class="col"><h4><?= $_SESSION['user']['name']; ?></h4></div>
-                                <div class="col d-flex justify-content-end"><?= $article['date']; ?></div>
+                                <div class="col"><h4><?= $result['name']; ?></h4></div>
+                                <div class="col d-flex justify-content-end"><?= $result['date']; ?></div>
                             </div>
                         </div>
 
+                        <!-- News content -->
                         <div class="card-body">
                             <h4 class="card-title">
-                                <?= $article['title']; ?>
+                                <?= $result['title']; ?>
                             </h4>
                             <p class="card-text">
-                                <?= $article['content']; ?>
+                                <?= $result['content']; ?>
                             </p>
                         </div>
 
