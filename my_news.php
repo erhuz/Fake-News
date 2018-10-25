@@ -24,6 +24,37 @@ $params = [
 // This data goes into my_news.php
 $articles = $db->getData($query, $params);
 
+// If article id to edit is set
+if(isset($_GET['edit'])){
+    // Get information about the article
+    $query = 'SELECT * FROM news WHERE id=:id;';
+    $params = [
+        ':id' => $_GET['edit']
+    ];
+
+    $tmp_arr = $db->getData($query, $params);
+
+
+    // If the logged in user isn't the author of the article, abort
+    if($tmp_arr[0]['author'] !== $_SESSION['user']['id']){
+        setMessage('You don\'t have any news with such an ID.', 'Woops!', 'warning');
+        header('location: /my_news.php');
+        exit;
+    }
+
+    // Convert special HTML entities back to characters 
+    // & replace <br> tags with \n (new lines).
+    $tmp_arr[0]['content'] = str_replace("<br>", "\n",
+        htmlspecialchars_decode($tmp_arr[0]['content'])
+    ); 
+
+    // Give article array a more readable name
+    $article_to_edit = $tmp_arr[0];
+
+    // Remove temporary array
+    unset($tmp_arr);
+}
+
 /* REQUIRE HTML */
 
 require_once $_SERVER['DOCUMENT_ROOT'].'/components/head.php';
