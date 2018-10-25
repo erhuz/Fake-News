@@ -12,42 +12,67 @@ declare (strict_types = 1);
         </div>
         <div class="row">
             <div class="col">
-                <form action="/processing/news/create.php" method="post">
-                    <fieldset>
-                        <div class="form-group">
-                            <label for="title">News Title</label>
-                            <input type="text" class="form-control" name="title" id="title" placeholder="Enter title..." required>
-                        </div>
-                        <div class="form-group">
-                            <label for="content">News Content</label>
-                            <textarea class="form-control" name="content" id="content" rows="3" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-lg btn-primary btn-block">Submit</button>
-                    </fieldset>
-                </form>
+
+                <?php if(isset($article_to_edit)): ?>
+
+                    <form action="/processing/news/edit.php" method="post">
+                        <fieldset>
+                            <div class="form-group">
+                                <label for="title">News Title</label>
+                                <input type="text" class="form-control" name="title" id="title" placeholder="Enter title..." value="<?= $article_to_edit['title']; ?>" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="content">News Content</label>
+                                <textarea class="form-control" name="content" id="content" rows="10" required><?= $article_to_edit['content']; ?></textarea>
+                            </div>
+                            <input type="hidden" name="id" value="<?= $article_to_edit['id'];?>">
+                            <button type="submit" class="btn btn-lg btn-primary btn-block">Submit</button>
+                        </fieldset>
+                    </form>
+
+                <?php else: ?>
+
+                    <form action="/processing/news/create.php" method="post">
+                        <fieldset>
+                            <div class="form-group">
+                                <label for="title">News Title</label>
+                                <input type="text" class="form-control" name="title" id="title" placeholder="Enter title..." required>
+                            </div>
+                            <div class="form-group">
+                                <label for="content">News Content</label>
+                                <textarea class="form-control" name="content" id="content" rows="3" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-lg btn-primary btn-block">Submit</button>
+                        </fieldset>
+                    </form>
+                <?php endif; ?>
+
             </div>
         </div>
+
         <?php if (!$articles): ?>
         <div class="row mt-4">
             <div class="col">
                 <h2>You have not created any news yet! Get started!</h2>
             </div>
         </div>
+
         <?php else: ?>
         <div class="row mt-4">
             <div class="col">
                 <h2>Your articles:</h2>
             </div>
         </div>
-        <?php endif;?>
+
         <div class="row">
             <?php foreach ($articles as $article): ?>
+
                 <div class="col-12 col-lg-6">
                     <div class="card border-primary mb-3">
                         <div class="card-header">
                             <div class="row">
                                 <div class="col"><h4><?= $_SESSION['user']['name']; ?></h4></div>
-                                <div class="col d-flex justify-content-end"><a class="btn btn-warning " href="/processing/news/edit.php?id=<?= $article['id']; ?>">Edit article</a></div>
+                                <div class="col d-flex justify-content-end"><a class="btn btn-warning" href="/my_news.php?edit=<?= $article['id']; ?>">Edit article</a></div>
                             </div>
                             <div class="row mt-2">
                                 <div class="col"><?= $article['date']; ?></div>
@@ -65,6 +90,8 @@ declare (strict_types = 1);
                     </div>
                 </div>
             <?php endforeach;?>
+
         </div>
+        <?php endif;?>
     </div>
 </main>
