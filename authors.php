@@ -17,10 +17,10 @@ $title = 'Authors';
 $db = new ConnectToDatabase;
 
 // Set the pre-defined query
-$query = 'SELECT * FROM authors ORDER BY date ASC;';
+$query = 'SELECT * FROM users ORDER BY date ASC;';
 
 // Get data from DB, it is required by authors.php
-$authors = $db->getData($query);
+$users = $db->getData($query);
 
 /* REQUIRE HTML */
 

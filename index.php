@@ -18,15 +18,15 @@ $title = 'News';
 $db = new connectToDatabase;
 
 // Set query to retrieve relevant information
-$query = 'SELECT news.id,
-                news.title,
-                news.content,
-                news.author,
-                news.likes,
-                news.date,
-                authors.name,
-                authors.email 
-    FROM news JOIN authors ON news.author = authors.id ORDER BY news.date DESC;';
+$query = 'SELECT posts.id,
+                posts.title,
+                posts.content,
+                posts.author,
+                posts.likes,
+                posts.date,
+                users.name,
+                users.email 
+    FROM posts JOIN users ON posts.author = users.id ORDER BY posts.date DESC;';
 
 // This data goes into index.php
 $results = $db->getData($query);

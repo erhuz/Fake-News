@@ -18,7 +18,7 @@ class ConnectToDatabase
         $this->pdo->setAttribute(PDO::ATTR_ERRMODE,
                             PDO::ERRMODE_EXCEPTION);
 
-        $this->pdo->exec('CREATE TABLE IF NOT EXISTS authors (
+        $this->pdo->exec('CREATE TABLE IF NOT EXISTS "users" (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 name TEXT NOT NULL,
                 email TEXT NOT NULL,
@@ -26,14 +26,14 @@ class ConnectToDatabase
                 date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
                 );');
 
-        $this->pdo->exec('CREATE TABLE IF NOT EXISTS news (
+        $this->pdo->exec('CREATE TABLE IF NOT EXISTS "posts" (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 title TEXT NOT NULL,
                 content TEXT NOT NULL,
                 author INTEGER,
                 likes INTEGER NOT NULL,
                 date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-                FOREIGN KEY (id) REFERENCES authors(id)
+                FOREIGN KEY (id) REFERENCES users(id)
                 );');
     }
 

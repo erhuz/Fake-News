@@ -26,7 +26,7 @@ foreach($_POST as $key => $value){
 $_POST['content'] = str_replace(PHP_EOL, '<br>', $_POST['content']);
 
 // Set insert query & parameters
-$query = 'INSERT INTO news(title, content, author, likes) VALUES(:title, :content, :author, :likes);';
+$query = 'INSERT INTO posts(title, content, author, likes) VALUES(:title, :content, :author, :likes);';
 $params = [
     ':title' => $_POST['title'],
     ':content' => $_POST['content'],

@@ -26,18 +26,18 @@ if(!isset($_SESSION['user'])){
 
 $db = new connectToDatabase;
 
-$query = 'SELECT * FROM news WHERE author=:id;';
+$query = 'SELECT * FROM posts WHERE author=:id;';
 $params = [
     ':id' => $_SESSION['user']['id']
 ];
 
 // This data goes into my_news.php
-$articles = $db->getData($query, $params);
+$posts = $db->getData($query, $params);
 
 // If article id to edit is set
 if(isset($_GET['edit'])){
     // Get information about the article
-    $query = 'SELECT * FROM news WHERE id=:id;';
+    $query = 'SELECT * FROM posts WHERE id=:id;';
     $params = [
         ':id' => $_GET['edit']
     ];
@@ -59,7 +59,7 @@ if(isset($_GET['edit'])){
     ); 
 
     // Give article array a more readable name
-    $article_to_edit = $tmp_arr[0];
+    $post_to_edit = $tmp_arr[0];
 
     // Remove temporary array
     unset($tmp_arr);

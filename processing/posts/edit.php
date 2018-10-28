@@ -26,7 +26,7 @@ foreach($_POST as $key => $value){
 $_POST['content'] = str_replace(PHP_EOL, '<br>', $_POST['content']);
 
 // Set insert query & parameters
-$query = 'UPDATE news SET title = :title, content = :content WHERE id = :id AND author = :author;';
+$query = 'UPDATE posts SET title = :title, content = :content WHERE id = :id AND author = :author;';
 $params = [
     ':title' => $_POST['title'],
     ':content' => $_POST['content'],

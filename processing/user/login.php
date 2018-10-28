@@ -24,7 +24,7 @@ foreach($_POST as $key => $value){
 }
 
 
-$query = "SELECT * FROM authors WHERE email=:email;";
+$query = "SELECT * FROM users WHERE email=:email;";
 $params = [':email' => $_POST['email']];
 
 // If author found in database

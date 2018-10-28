@@ -26,7 +26,7 @@ if(!isset($_GET['id'])){
 $db = new ConnectToDatabase;
 
 // Get given author w/ his/hers articles
-$query = 'SELECT * FROM authors JOIN news ON authors.id = news.author WHERE authors.id=:id ORDER BY date';
+$query = 'SELECT * FROM users JOIN posts ON users.id = posts.author WHERE users.id=:id ORDER BY date';
 $params = [
     ':id' => $_GET['id']
 ];

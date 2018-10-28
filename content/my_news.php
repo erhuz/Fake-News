@@ -13,26 +13,26 @@ declare (strict_types = 1);
         <div class="row">
             <div class="col">
 
-                <?php if(isset($article_to_edit)): ?>
+                <?php if(isset($post_to_edit)): ?>
 
-                    <form action="/processing/news/edit.php" method="post">
+                    <form action="/processing/posts/edit.php" method="post">
                         <fieldset>
                             <div class="form-group">
                                 <label for="title">News Title</label>
-                                <input type="text" class="form-control" name="title" id="title" placeholder="Enter title..." value="<?= $article_to_edit['title']; ?>" required>
+                                <input type="text" class="form-control" name="title" id="title" placeholder="Enter title..." value="<?= $post_to_edit['title']; ?>" required>
                             </div>
                             <div class="form-group">
                                 <label for="content">News Content</label>
-                                <textarea class="form-control" name="content" id="content" rows="10" required><?= $article_to_edit['content']; ?></textarea>
+                                <textarea class="form-control" name="content" id="content" rows="10" required><?= $post_to_edit['content']; ?></textarea>
                             </div>
-                            <input type="hidden" name="id" value="<?= $article_to_edit['id'];?>">
+                            <input type="hidden" name="id" value="<?= $post_to_edit['id'];?>">
                             <button type="submit" class="btn btn-lg btn-primary btn-block">Submit</button>
                         </fieldset>
                     </form>
 
                 <?php else: ?>
 
-                    <form action="/processing/news/create.php" method="post">
+                    <form action="/processing/posts/create.php" method="post">
                         <fieldset>
                             <div class="form-group">
                                 <label for="title">News Title</label>
@@ -50,7 +50,7 @@ declare (strict_types = 1);
             </div>
         </div>
 
-        <?php if (!$articles): ?>
+        <?php if (!$posts): ?>
         <div class="row mt-4">
             <div class="col">
                 <h2>You have not created any news yet! Get started!</h2>
@@ -65,26 +65,26 @@ declare (strict_types = 1);
         </div>
 
         <div class="row">
-            <?php foreach ($articles as $article): ?>
+            <?php foreach ($posts as $post): ?>
 
                 <div class="col-12 col-lg-6">
                     <div class="card border-primary mb-3">
                         <div class="card-header">
                             <div class="row">
                                 <div class="col"><h4><?= $_SESSION['user']['name']; ?></h4></div>
-                                <div class="col d-flex justify-content-end"><a class="btn btn-warning" href="/my_news.php?edit=<?= $article['id']; ?>">Edit article</a></div>
+                                <div class="col d-flex justify-content-end"><a class="btn btn-warning" href="/my_news.php?edit=<?= $post['id']; ?>">Edit post</a></div>
                             </div>
                             <div class="row mt-2">
-                                <div class="col"><?= $article['date']; ?></div>
-                                <div class="col d-flex justify-content-end"><a class="btn btn-danger" href="/processing/news/delete.php?id=<?= $article['id']; ?>">Delete article</a></div>
+                                <div class="col"><?= $post['date']; ?></div>
+                                <div class="col d-flex justify-content-end"><a class="btn btn-danger" href="/processing/posts/delete.php?id=<?= $post['id']; ?>">Delete post</a></div>
                             </div>
                         </div>
                         <div class="card-body">
                             <h4 class="card-title">
-                                <?= $article['title']; ?>
+                                <?= $post['title']; ?>
                             </h4>
                             <p class="card-text">
-                                <?= $article['content']; ?>
+                                <?= $post['content']; ?>
                             </p>
                         </div>
                     </div>

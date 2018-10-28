@@ -23,7 +23,7 @@ foreach($_GET as $key => $value){
 }
 
 // Set insert query & parameters
-$query = 'DELETE FROM news WHERE id=:id AND author=:author;';
+$query = 'DELETE FROM posts WHERE id=:id AND author=:author;';
 $params = [
     ':id' => $_GET['id'],
     ':author' => $_SESSION['user']['id']

@@ -14,17 +14,17 @@
 
                         <div class="card-header">
                             <div class="row">
-                                <div class="col"><h4><?= $result['name']; ?></h4></div>
-                                <div class="col d-flex justify-content-end"><?= $result['date']; ?></div>
+                                <div class="col"><h4><?= $result['name']; // Authors name ?></h4></div>
+                                <div class="col d-flex justify-content-end"><?= $result['date']; // Posts creation date ?></div>
                             </div>
                         </div>
 
                         <div class="card-body">
                             <h4 class="card-title">
-                                <?= $result['title']; ?>
+                                <?= $result['title']; // Posts title ?>
                             </h4>
                             <p class="card-text">
-                                <?= $result['content']; ?>
+                                <?= $result['content']; // Posts content ?>
                             </p>
                         </div>
 

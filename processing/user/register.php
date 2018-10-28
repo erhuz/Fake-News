@@ -36,7 +36,7 @@ if($_POST['pwd'] !== $_POST['pwd2']){
 
 
 // Set select query & parameters
-$query = "SELECT * FROM authors WHERE email=:email;";
+$query = "SELECT * FROM users WHERE email=:email;";
 $params = [':email' => $_POST['email']];
 
 // If email already registered
@@ -51,7 +51,7 @@ if($db->getData($query, $params)){
 }
 
 // Set insert query & parameters
-$query = 'INSERT INTO authors(name, email, password) VALUES(:name, :email, :password);';
+$query = 'INSERT INTO users(name, email, password) VALUES(:name, :email, :password);';
 $params = [
     ':name' => $_POST['name'],
     ':email' => $_POST['email'],
