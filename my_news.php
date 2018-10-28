@@ -1,5 +1,15 @@
 <?php
 declare (strict_types = 1);
+/**
+ * This page will only be
+ * displayed for logged-in
+ * users.
+ * 
+ * It is used for adding,
+ * updating, deleting and
+ * viewing news articles
+ * created by self.
+ */
 
 // Page setup
 session_start();

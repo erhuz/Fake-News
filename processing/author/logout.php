@@ -1,4 +1,6 @@
 <?php 
+declare (strict_types = 1);
+
 // Start session (otherwhise we can't access the session vars)
 session_start();
 require_once $_SERVER['DOCUMENT_ROOT'].'/functions.php';

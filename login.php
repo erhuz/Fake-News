@@ -1,5 +1,10 @@
 <?php
 declare (strict_types = 1);
+/**
+ * This is the page that users
+ * will use for registering
+ * and loggin in.
+ */
 
 // Page setup
 session_start();
