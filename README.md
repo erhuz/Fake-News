@@ -25,14 +25,20 @@ Fake-News is an application that dynamically displays news articles from a datab
 ## Installation
 1. Install SQLite3  
 Debian / Ubuntu:  
-```sudo apt install sqlite3```  
+    ```
+    sudo apt install sqlite3
+    ```
 
     OS X / Homebrew:  
-    ```brew install sqlite3```  
+    ```
+    brew install sqlite3
+    ```  
 
 
 1. Clone the directory  
-```git clone git@github.com:erhuz/Fake-News.git```
+    ```
+    git clone git@github.com:erhuz/Fake-News.git
+    ```
 
 1. Setup a dedicated webserver root in the cloned directory etc: `/home/${USER}/sites/fake-news/`.  
 Note: The application WILL NOT WORK CORRECTLY if you not have the webserver root in the cloned directory.
