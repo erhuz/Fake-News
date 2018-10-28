@@ -46,7 +46,7 @@ Debian / Ubuntu:
 1. Enjoy your Fake News!
 
 ## Credit
-- ![Bootswatch (Litera)](https://bootswatch.com/litera/)
+- [Bootswatch (Litera)](https://bootswatch.com/litera/)
 
 ## License
 
