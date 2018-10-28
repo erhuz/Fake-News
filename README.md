@@ -41,7 +41,7 @@ Debian / Ubuntu:
     ```
 
 1. Setup a dedicated webserver root in the cloned directory etc: `/home/${USER}/sites/fake-news/`.  
-Note: The application WILL NOT WORK CORRECTLY if you not have the webserver root in the cloned directory.
+Note: The application **WILL NOT WORK CORRECTLY** if you not have the webserver root in the cloned directory.
 
 1. Enjoy your Fake News!
 
