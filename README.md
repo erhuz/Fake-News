@@ -45,6 +45,9 @@ Debian / Ubuntu:
 
 1. Enjoy your Fake News!
 
+## Credit
+- ![Bootswatch (Litera)](https://bootswatch.com/litera/)
+
 ## License
 
 The MIT License ([MIT](https://raw.githubusercontent.com/erhuz/Fake-News/master/LICENSE))
