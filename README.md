@@ -27,8 +27,8 @@ Fake-News is an application that dynamically displays news articles from a datab
 Debian / Ubuntu:  
 ```sudo apt install sqlite3```  
 
-OS X / Homebrew:  
-```brew install sqlite3```  
+    OS X / Homebrew:  
+    ```brew install sqlite3```  
 
 
 1. Clone the directory  
