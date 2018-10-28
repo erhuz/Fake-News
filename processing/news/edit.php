@@ -26,16 +26,20 @@ foreach($_POST as $key => $value){
 $_POST['content'] = str_replace(PHP_EOL, '<br>', $_POST['content']);
 
 // Set insert query & parameters
-$query = 'DELETE FROM news WHERE id=:id;';
+$query = 'UPDATE news SET title = :title, content = :content WHERE id = :id AND author = :author;';
 $params = [
-    'id' => $_GET['id']
+    ':title' => $_POST['title'],
+    ':content' => $_POST['content'],
+    ':id' => $_POST['id'],
+    ':author' => $_SESSION['user']['id'],
 ];
+
 
 // If data successfully inserted
 if($db->setData($query, $params)){
 
     // Set message
-    setMessage('Successfully removed the article.', 'Article Removed!', 'success');
+    setMessage('Successfully edited the article.', 'Updated!', 'success');
 
     // Redirect back to my news
     header('location: /my_news.php');
@@ -43,7 +47,7 @@ if($db->setData($query, $params)){
 }else{
     
     // Set message
-    setMessage('Failed to create an article.', 'Could not create article!', 'danger');
+    setMessage('Failed to edit the article.', 'Could not update article!', 'danger');
 
     // Redirect back to my news
     header('location: /my_news.php');
