@@ -19,13 +19,22 @@
                             </div>
                         </div>
 
+                        <!-- News content -->
                         <div class="card-body">
                             <h4 class="card-title">
                                 <?= $result['title']; // Posts title ?>
                             </h4>
+
                             <p class="card-text">
                                 <?= $result['content']; // Posts content ?>
                             </p>
+                        </div>
+
+                        <div class="card-footer text-muted">
+                            <div class="row">
+                                <div class="col">Likes: <?= $result['likes']; ?></div>
+                                <div class="col d-flex justify-content-end">Published: <?= $result['date']; // Posts creation date ?></div>
+                            </div>
                         </div>
 
                     </div>

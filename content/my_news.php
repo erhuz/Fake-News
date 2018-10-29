@@ -78,6 +78,9 @@ declare (strict_types = 1);
                                 <div class="col"><?= $post['date']; ?></div>
                                 <div class="col d-flex justify-content-end"><a class="btn btn-danger" href="/processing/posts/delete.php?id=<?= $post['id']; ?>">Delete post</a></div>
                             </div>
+                            <div class="row">
+                                <div class="col">Likes: <?= $post['likes']; ?></div>
+                            </div>
                         </div>
                         <div class="card-body">
                             <h4 class="card-title">
