@@ -1,5 +1,8 @@
 <?php
 
+declare (strict_types = 1);
+
+
 if(isset($_SESSION['messages'])):
 
     $messages = $_SESSION['messages'];

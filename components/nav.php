@@ -1,3 +1,7 @@
+<?php
+declare (strict_types = 1);
+?>
+
 <?php if(isset($_SESSION['user'])): ?>
 <!-- NAVBAR BEGIN -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
