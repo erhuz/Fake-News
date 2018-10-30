@@ -6,9 +6,20 @@ declare (strict_types = 1);
  * 
  * All functions should be in this file,
  * except for the ConnectToDatabase Class.
- */
+*/
 
 
+ 
+
+/**
+* setMessage
+ *
+ * @param string $message
+ * @param string $title (Optional)
+ * @param string $type (Optional)
+ *
+ * @return void
+*/
 function setMessage(string $message, ?string $title = null, ?string $type = null) : void
 {
     // Prepare message

@@ -7,6 +7,11 @@ class ConnectToDatabase
     //PDO object
     private $pdo;
 
+    /**
+     * Initialize DB-connection
+     *
+     * @return void
+    */
     public function __construct()
     {
         $this->fileName = $_SERVER['DOCUMENT_ROOT'].'/database/fake-news.db';
@@ -18,6 +23,7 @@ class ConnectToDatabase
         $this->pdo->setAttribute(PDO::ATTR_ERRMODE,
                             PDO::ERRMODE_EXCEPTION);
 
+        // Create tables if they do not exist
         $this->pdo->exec('CREATE TABLE IF NOT EXISTS "users" (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 name TEXT NOT NULL,
@@ -44,7 +50,7 @@ class ConnectToDatabase
      * @param array  $params (Optional)
      *
      * @return array
-     */
+    */
     public function getData(string $query, ?array $params = []): array
     {
         $sth = $this->pdo->prepare($query);
@@ -58,7 +64,9 @@ class ConnectToDatabase
      *
      * @param string $query
      * @param array  $params (Optional)
-     */
+     * 
+     * @return bool
+    */
     public function setData(string $query, ?array $params = []): bool
     {
         $sth = $this->pdo->prepare($query);
