@@ -10,9 +10,18 @@ if(isset($_SESSION['messages'])):
 ?>
 <div class="container mt-4"> <!-- Messages container -->
     <?php foreach($messages as $mess): ?>  
+
+        <?php 
+            if(isset($mess['type'])){
+                $color = $mess['type'];
+            }else{
+                $color = 'primary';
+            }
+        ?>
+
         <div class="row"> <!-- Message row -->
-            <?php if($mess['type'] === 'secondary'): ?>
-            <div div class="col-12 alert alert-dismissible alert-secondary">
+        
+            <div class="col-12 alert alert-dismissible alert-<?= $color ?>">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
                 <?php if(isset($mess['title'])): ?>
                     <h4><?= $mess['title']; ?></h4>
@@ -20,52 +29,6 @@ if(isset($_SESSION['messages'])):
                 <p><?= $mess['content']; ?></p>
             </div>
 
-            <?php elseif($mess['type'] === 'success'): ?>
-            <div class="col-12 alert alert-dismissible alert-success">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                <?php if(isset($mess['title'])): ?>
-                    <h4><?= $mess['title']; ?></h4>
-                <?php endif; ?>
-                <p><?= $mess['content']; ?></p>
-            </div>
-
-            <?php elseif($mess['type'] === 'info'): ?>
-            <div class="col-12 alert alert-dismissible alert-info">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                <?php if(isset($mess['title'])): ?>
-                    <h4><?= $mess['title']; ?></h4>
-                <?php endif; ?>
-                <p><?= $mess['content']; ?></p>
-            </div>
-
-            <?php elseif($mess['type'] === 'warning'): ?>
-            <div class="col-12 alert alert-dismissible alert-warning">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                <?php if(isset($mess['title'])): ?>
-                    <h4><?= $mess['title']; ?></h4>
-                <?php endif; ?>
-                <p><?= $mess['content']; ?></p>
-            </div>
-
-            <?php elseif($mess['type'] === 'danger'): ?>
-            <div class="col-12 alert alert-dismissible alert-danger">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                <?php if(isset($mess['title'])): ?>
-                    <h4><?= $mess['title']; ?></h4>
-                <?php endif; ?>
-                <p><?= $mess['content']; ?></p>
-            </div>
-
-            <?php else: ?>
-            <div class="col-12 alert alert-dismissible alert-primary">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                <?php if(isset($mess['title'])): ?>
-                    <h4><?= $mess['title']; ?></h4>
-                <?php endif; ?>
-                <p><?= $mess['content']; ?></p>
-            </div>
-
-            <?php endif; ?>
         </div> <!-- /Message row -->
     <?php endforeach; ?>
 </div> <!-- /Messages container -->
