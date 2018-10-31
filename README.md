@@ -45,6 +45,10 @@ Debian / Ubuntu:
 
 1. Enjoy your Fake News!
 
+## Testers
+- Maja Fillipsson
+- Rebecca Klaening
+
 ## Credit
 - [Bootswatch (Litera)](https://bootswatch.com/litera/)
 
